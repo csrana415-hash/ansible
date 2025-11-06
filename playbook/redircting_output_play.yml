@@ -1,0 +1,10 @@
+---
+- name: redirecting out put
+  hosts: prd
+  become: yes
+  tasks:
+    - name: redirecting output to a file
+      shell: ls -la  >> test.log
+      args:
+        chdir: /tmp/
+        creates: test.log

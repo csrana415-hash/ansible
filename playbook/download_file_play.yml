@@ -1,0 +1,9 @@
+---
+- name: downloading file
+  become: yes
+  hosts: prd
+  tasks:
+    - name: downloading file
+      get_url:
+        url: https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.8.7/npp.8.8.7.Installer.x64.exe
+        dest: /tmp/

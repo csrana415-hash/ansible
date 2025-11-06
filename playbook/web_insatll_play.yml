@@ -1,0 +1,8 @@
+- name: Installing website
+  hosts: prd
+  become: yes
+  tasks:
+    - name: coping index.html file
+      copy:
+        src: /home/ubuntu/playbook/freewebsitetemplates.com/download/hairstylesalon/index.html
+        dest: /var/www/html/

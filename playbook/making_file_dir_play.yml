@@ -1,0 +1,13 @@
+---
+- name: making file
+  hosts: all
+  become: yes
+  tasks:
+    - name: making file
+      file:
+        path: /tmp/file.txt
+        state: touch
+        owner: ubuntu
+        group: ubuntu
+        mode: ugo=wrx
+
