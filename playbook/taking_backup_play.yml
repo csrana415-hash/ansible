@@ -1,0 +1,29 @@
+---
+- name: taking backup
+  become: yes
+  hosts: prd
+  vars:
+    hot: "{{ inventory_hostname }}"
+
+  tasks:
+    - name: making dir
+      file:
+        path: "/tmp/{{ hot }}"
+        state: directory
+    
+    - name: taking file backup
+      copy:
+        src: /root/history
+        dest: "/tmp/{{ hot }}/"
+        backup: yes
+        remote_src: yes
+    - name: taring file
+      shell: " sudo tar -cvzf {{ hot }}.tar.gz /tmp/{{ hot }}/"
+      args:
+        chdir: /tmp/
+
+    - name: file msg
+      debug:
+        msg: " file taring complete"
+     
+

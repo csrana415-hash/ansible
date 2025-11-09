@@ -5,7 +5,7 @@
   tasks:
     - name: installing nginx 
       apt:
-        name: nginx
+        name: apache2
         state: present
 
     - name: enabling and running

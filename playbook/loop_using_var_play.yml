@@ -1,0 +1,17 @@
+---
+- name: dleting users
+  become: yes
+  hosts: prd
+  vars:
+    - app: ["raju" , "babu", "shyam"]
+  tasks:
+    - name: deleting users
+      user: 
+        name: "{{ item }}"
+        state: absent
+        remove: yes
+
+      tags: i-remove
+      
+      with_items: "{{ app }}"
+
