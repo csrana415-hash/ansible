@@ -1,6 +1,0 @@
----
-- name: using role so destirube file and install packets
-  become: yes
-  hosts: prd
-  roles:
-    - httpd_setup

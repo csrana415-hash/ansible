@@ -1,7 +1,0 @@
----
-- name: stoping all position 
-  hosts: all
-  become: yes
-  tasks:
-    - name: stoping position
-      shell: sudo poweroff
