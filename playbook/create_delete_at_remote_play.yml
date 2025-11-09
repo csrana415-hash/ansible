@@ -1,0 +1,26 @@
+---
+- name: creatings and deleting users
+  hosts: prd
+  become: yes
+  tasks:
+    - name: create user
+      user:
+        name: paul
+        comment: user banayega kya
+        home: /home/paul
+        shell: /bin/bash
+        group: ubuntu
+       
+    - name: deleting user
+      user:
+        name: paul
+        state: absent
+        remove: yes
+
+
+    - name: adding user to multi group
+      user:
+        name: nick
+        groups: vagrant , ubuntu
+        shell: /bin/bash
+

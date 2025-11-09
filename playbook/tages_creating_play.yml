@@ -1,0 +1,16 @@
+---
+- name: craeting tags
+  become: yes
+  hosts: prd
+  tasks:
+    - name: installing net state
+      apt:
+        name: net-tools
+        state: present
+      tags: net-state-tool
+
+    - name: mking file
+      file:
+        path: /tmp/network.txt
+        state: touch
+      tags: create-file

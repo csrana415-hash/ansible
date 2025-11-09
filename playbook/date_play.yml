@@ -1,0 +1,9 @@
+---
+- name: Date Time
+  hosts: servers
+  tasks:
+    - name: Show date time
+      command: date
+
+    - name: Check Uptime
+      command: uptime
